@@ -1,12 +1,12 @@
 {
   "name": "tourze/security",
-  "description": "安全处理类库",
+  "description": "途者框架-安全处理相关",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
     {
       "name": "tourze",
-      "email": "25803471@qq.com"
+      "email": "dev@tourze.com"
     }
   ],
   "require": {
