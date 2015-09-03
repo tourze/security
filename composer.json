@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "tourze/core": "dev-master",
+    "tourze/base": "dev-master",
     "ramsey/uuid": "^2.8",
     "bjeavons/zxcvbn-php": "^0.1.3"
   },
@@ -20,6 +20,14 @@
     },
     "files": [
       "bootstrap.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "tourze\\Security\\": "tests/"
+    },
+    "files": [
+      "bootstrap-dev.php"
     ]
   }
 }
