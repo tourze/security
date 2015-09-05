@@ -18,8 +18,14 @@ class osCommerce extends Hash implements HashInterface
      */
     public $text;
 
+    /**
+     * @var string
+     */
     public $salt = '';
 
+    /**
+     * {@inheritdoc}
+     */
     public function hash()
     {
         return (string) md5($this->salt . $this->text);

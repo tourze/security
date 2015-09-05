@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "tourze/base": "dev-master",
+    "tourze/base": "^1.0",
     "ramsey/uuid": "^2.8",
     "bjeavons/zxcvbn-php": "^0.1.3"
   },
