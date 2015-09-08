@@ -3,9 +3,11 @@
 namespace tourze\Security;
 
 use tourze\Base\Helper\Arr;
+use tourze\Security\Password\HashInterface;
 use tourze\Security\Password\Hash\Joomla;
 use tourze\Security\Password\Hash\MD5;
 use tourze\Security\Password\Hash\MD5Twice;
+use tourze\Security\Password\Hash\osCommerce;
 use tourze\Security\Password\Hash\Plain;
 use tourze\Security\Password\Hash\SHA1;
 use ZxcvbnPhp\Zxcvbn;
@@ -32,6 +34,11 @@ class Password
      * 双重md5
      */
     const MD5_TWICE_HASH = 'md5_md5';
+
+    /**
+     * 双重sha1
+     */
+    const SHA1_TWICE_HASH = 'sha1_sha1';
 
     /**
      * md5($text.$salt)，Joomla采用这个方式
@@ -80,10 +87,75 @@ class Password
             case self::PASS_SALT_MD5_HASH:
                 $object = new Joomla($params);
                 break;
+            case self::SALT_PASS_MD5_HASH:
+                $object = new osCommerce($params);
+                break;
             default:
                 $object = new Plain($params);
         }
 
-        return $object->hash();
+        /** @var HashInterface $object */
+        return (string) $object->hash();
+    }
+
+    /**
+     * 单次MD5
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function md5($str)
+    {
+        return self::hash($str, self::MD5_HASH);
+    }
+
+    /**
+     * 两次MD5
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function md5Twice($str)
+    {
+        return self::hash($str, self::MD5_TWICE_HASH);
+    }
+
+    /**
+     * SHA1
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function sha1($str)
+    {
+        return self::hash($str, self::SHA1_HASH);
+    }
+
+    /**
+     * md5+salt加密
+     *
+     * @param string $str
+     * @param string $salt
+     * @return string
+     */
+    public static function md5Salt($str, $salt)
+    {
+        return self::hash($str, self::PASS_SALT_MD5_HASH, [
+            'salt' => $salt,
+        ]);
+    }
+
+    /**
+     * salt+md5
+     *
+     * @param string $str
+     * @param string $salt
+     * @return string
+     */
+    public static function saltMd5($str, $salt)
+    {
+        return self::hash($str, self::SALT_PASS_MD5_HASH, [
+            'salt' => $salt,
+        ]);
     }
 }

@@ -14,12 +14,13 @@ class Joomla extends Hash implements HashInterface
 {
 
     /**
-     * @var string 明文
+     * @var string
      */
-    public $text;
-
     public $salt = '';
 
+    /**
+     * {@inheritdoc}
+     */
     public function hash()
     {
         return (string) md5($this->text . $this->salt);

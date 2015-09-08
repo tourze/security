@@ -8,8 +8,7 @@ use Rhumsaa\Uuid\Exception\UnsatisfiedDependencyException;
 /**
  * UUID生成器
  *
- * @package   Base
- * @category  Security
+ * @package tourze\Security
  */
 class UUID
 {

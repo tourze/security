@@ -2,14 +2,13 @@
 
 namespace tourze\Security\Password;
 
+use tourze\Base\Object;
+
 /**
- * Interface HashInterface
+ * 基础的hash对象
  *
  * @package tourze\Security\Password
  */
-interface HashInterface
+class HashBase extends Object
 {
-
-    public function hash();
-
 }

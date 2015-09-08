@@ -14,11 +14,6 @@ class osCommerce extends Hash implements HashInterface
 {
 
     /**
-     * @var string 明文
-     */
-    public $text;
-
-    /**
      * @var string
      */
     public $salt = '';

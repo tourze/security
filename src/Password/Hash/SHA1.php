@@ -14,10 +14,8 @@ class SHA1 extends Hash implements HashInterface
 {
 
     /**
-     * @var string 明文
+     * {@inheritdoc}
      */
-    public $text;
-
     public function hash()
     {
         return (string) sha1($this->text);

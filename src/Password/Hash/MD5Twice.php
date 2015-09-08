@@ -14,10 +14,8 @@ class MD5Twice extends Hash implements HashInterface
 {
 
     /**
-     * @var string 明文
+     * {@inheritdoc}
      */
-    public $text;
-
     public function hash()
     {
         return (string) md5(md5($this->text));

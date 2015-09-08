@@ -14,10 +14,8 @@ class Plain extends Hash implements HashInterface
 {
 
     /**
-     * @var string 明文
+     * {@inheritdoc}
      */
-    public $text;
-
     public function hash()
     {
         return trim($this->text);
