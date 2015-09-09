@@ -15,3 +15,8 @@
 或直接执行
 
     composer require tourze/security:"^1.0"
+
+## 使用
+
+### UUID生成
+
